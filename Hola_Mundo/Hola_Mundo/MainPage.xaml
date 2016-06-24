@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="Hola_Mundo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hola_Mundo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="wideState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="641">
+                            
+                        </AdaptiveTrigger>
+                    </VisualState.StateTriggers> 
+                </VisualState>
+                <VisualState x:Name="narrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="inputPanel.Orientation" Value="Vertical"/>
+                        <Setter Target="btnName.Margin" Value="0,4,0,0"/>
+                    </VisualState.Setters>
+
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <StackPanel x:Name="panelContent" Margin="8,32,0,0">
+            <TextBlock x:Name="Titulo" Margin="0,0,0,40">Hola!, cómo te llamas?</TextBlock>
+            <StackPanel x:Name="inputPanel" Orientation="Horizontal" Margin="0,20,0,20">
+                <TextBox x:Name="inputName" Width="280" HorizontalAlignment="Left"></TextBox>
+                <Button x:Name="btnName" Content="Di Hola!" Click="btnName_Click"></Button>
+            </StackPanel>
+            <TextBlock x:Name="name"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>
